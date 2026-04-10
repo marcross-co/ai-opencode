@@ -32,7 +32,7 @@ export interface OpencodeBaseOptions {
  */
 export interface OpencodeToolsOptions {
   /** Tools available to the model */
-  tools?: Tool<any, any, any>[]
+  tools?: Array<Tool<unknown, unknown, string>>
   /** How to choose tools: 'auto' lets model decide, 'none' disables tools */
   toolChoice?: 'auto' | 'none' | { type: 'function'; function: { name: string } }
 }

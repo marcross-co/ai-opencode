@@ -355,6 +355,46 @@ export const OPENCODE_MINIMAX_MODELS = [
 // TYPE EXPORTS
 // ==========================================
 
+/** All models array for iteration */
+export const ALL_MODELS = [
+  KIMI_K2_5,
+  CLAUDE_OPUS_4_6,
+  CLAUDE_OPUS_4_5,
+  CLAUDE_OPUS_4_1,
+  CLAUDE_SONNET_4_6,
+  CLAUDE_SONNET_4_5,
+  CLAUDE_SONNET_4,
+  CLAUDE_HAIKU_4_5,
+  CLAUDE_HAIKU_3_5,
+  GPT_5_4,
+  GPT_5_4_PRO,
+  GPT_5_4_MINI,
+  GPT_5_4_NANO,
+  GPT_5_3_CODEX,
+  GPT_5_3_CODEX_SPARK,
+  GPT_5_2,
+  GPT_5_2_CODEX,
+  GPT_5_1,
+  GPT_5_1_CODEX,
+  GPT_5_1_CODEX_MAX,
+  GPT_5_1_CODEX_MINI,
+  GPT_5,
+  GPT_5_CODEX,
+  GPT_5_NANO,
+  GEMINI_3_1_PRO,
+  GEMINI_3_FLASH,
+  GLM_5_1,
+  GLM_5,
+  MINIMAX_M2_5,
+  MINIMAX_M2_5_FREE,
+  MINIMAX_M2_7,
+  MIMO_V2_OMNI,
+  MIMO_V2_PRO,
+  BIG_PICKLE,
+  QWEN_3_6_PLUS_FREE,
+  NEMOTRON_3_SUPER_FREE,
+] as const
+
 /** Type for Zen-only models */
 export type OpencodeZenModel = (typeof OPENCODE_ZEN_MODELS)[number]
 

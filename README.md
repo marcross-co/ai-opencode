@@ -6,6 +6,8 @@ A community-maintained TanStack AI adapter for [OpenCode](https://opencode.ai/) 
 
 > **Note**: This is a community adapter maintained by the [Marcross](https://github.com/marcross-co) organization, not an official TanStack package. For community adapter guidelines, see the [TanStack AI Community Adapters Guide](https://github.com/TanStack/ai/blob/main/docs/community-adapters/guide.md).
 
+> 🤖 **AI-Generated**: This project was developed entirely using AI assistance, specifically [OpenCode](https://opencode.ai/) with the [Kimi K2.5](https://www.moonshot.cn/) model. It demonstrates the power of AI-assisted development for building production-ready TypeScript packages.
+
 ## Features
 
 - 🤖 **30+ Models**: Full support for OpenCode Zen and Go models including Claude, GPT, Gemini, Kimi, GLM, MiniMax, and more
@@ -352,6 +354,26 @@ The kimi-k2.5 model requires a `reasoning_content` field on assistant messages w
 - **Go**: `https://opencode.ai/zen/go/v1`
 - **Protocol**: OpenAI-compatible Chat Completions API
 - **Streaming**: Supported via Server-Sent Events
+
+## Disclaimer
+
+This project is an independent community effort and is **not endorsed, sponsored, or affiliated** with any of the companies, organizations, or entities mentioned in this repository, including but not limited to:
+
+- **OpenCode** (the API provider)
+- **TanStack** (the AI SDK framework)
+- **Moonshot AI** (Kimi models)
+- **Anthropic** (Claude models)
+- **OpenAI** (GPT models)
+- **Google** (Gemini models)
+- **Zhipu AI** (GLM models)
+- **MiniMax** (MiniMax models)
+- **Xiaomi** (MiMo models)
+- **Alibaba** (Qwen models)
+- **NVIDIA** (Nemotron models)
+
+All trademarks, brand names, product names, and logos referenced herein are the property of their respective owners. The use of these names and references is for identification purposes only and does not imply endorsement.
+
+All copyrights and intellectual property rights for the respective models, APIs, and services remain with their original owners. This adapter simply provides a bridge to access these services through the TanStack AI SDK.
 
 ## License
 

@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/marcross-co/ai-opencode.git"
+    "url": "git+https://github.com/marcross-co/ai-opencode.git"
   },
   "bugs": {
     "url": "https://github.com/marcross-co/ai-opencode/issues"
@@ -25,15 +25,25 @@
   ],
   "packageManager": "pnpm@10.18.0",
   "type": "module",
-  "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "import": "./dist/index.js"
+    },
+    "./adapters": {
+      "types": "./dist/adapters/index.d.ts",
+      "import": "./dist/adapters/index.js"
+    },
+    "./models": {
+      "types": "./dist/models/index.d.ts",
+      "import": "./dist/models/index.js"
     }
+  },
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
   },
   "files": [
     "dist",
@@ -41,13 +51,20 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts --clean",
-    "dev": "tsup src/index.ts --format esm,cjs --dts --watch",
-    "lint": "eslint src --ext .ts",
+    "build": "tsup src/index.ts src/adapters/index.ts src/models/index.ts --format esm --dts --clean --splitting false",
+    "dev": "tsup src/index.ts src/adapters/index.ts src/models/index.ts --format esm --dts --watch --splitting false",
+    "clean": "rm -rf ./dist",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "prepublishOnly": "npm run build"
+    "test:build": "publint --strict",
+    "test:types": "tsc",
+    "test:knip": "knip",
+    "prepublishOnly": "npm run build && npm run test:build"
   },
   "peerDependencies": {
     "@tanstack/ai": ">=0.10.0",
@@ -57,10 +74,18 @@
     "openai": "^4.0.0"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.28.1",
+    "@eslint/js": "^9.0.0",
     "@tanstack/ai": "^0.10.0",
     "@types/node": "^20.0.0",
+    "@vitest/coverage-v8": "^1.0.0",
+    "eslint": "^9.0.0",
+    "knip": "^5.0.0",
+    "prettier": "^3.0.0",
+    "publint": "^0.3.0",
     "tsup": "^8.0.0",
     "typescript": "^5.0.0",
+    "typescript-eslint": "^8.0.0",
     "vitest": "^1.0.0",
     "zod": "^4.0.0"
   }
