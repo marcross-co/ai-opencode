@@ -1,5 +1,18 @@
 # @marcross/ai-opencode
 
+## 0.1.2
+
+### Patch Changes
+
+- 85642c2: Removed Quen 3.6 Plus Free model
+
+  Added typechecking for `opencodeText`
+
+  ```typescript
+  opencodeText("big-pickle", { subscription: "zen" }); // works correctly
+  opencodeText("fake-model", { subscription: "zen" }); // throws error
+  ```
+
 ## 0.1.1
 
 ### Patch Changes
