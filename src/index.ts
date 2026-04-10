@@ -3,13 +3,19 @@ import { BaseTextAdapter } from "@tanstack/ai/adapters";
 import type { ContentPart, StreamChunk, TextOptions, Tool } from "@tanstack/ai";
 
 import type { OpencodeModel } from "./constants.js";
-import { OPENCODE_BASE_URL_ZEN, OPENCODE_BASE_URL_GO } from "./constants.js";
+import {
+  OPENCODE_BASE_URL_ZEN,
+  OPENCODE_BASE_URL_GO,
+  OPENCODE_CHAT_MODELS,
+} from "./constants.js";
 import type {
   OpencodeBaseOptions,
   OpencodeToolsOptions,
   OpencodeStructuredOutputOptions,
   OpencodeStreamingOptions,
   OpencodeVisionOptions,
+  OpencodeChatModelProviderOptionsByName,
+  OpencodeModelInputModalitiesByName,
 } from "./provider-options.js";
 import { ALL_MODELS } from "./model-meta.js";
 import type { OpencodeModelMeta } from "./types.js";
@@ -22,6 +28,28 @@ export type OpencodeProviderOptions = OpencodeBaseOptions &
   Partial<OpencodeStructuredOutputOptions> &
   Partial<OpencodeStreamingOptions> &
   Partial<OpencodeVisionOptions>;
+
+// ==========================================
+// TYPE RESOLUTION HELPERS
+// ==========================================
+
+/**
+ * Resolve provider options for a specific model.
+ * If the model has explicit options in the map, use those; otherwise use base options.
+ */
+type ResolveProviderOptions<TModel extends string> =
+  TModel extends keyof OpencodeChatModelProviderOptionsByName
+    ? OpencodeChatModelProviderOptionsByName[TModel]
+    : OpencodeProviderOptions;
+
+/**
+ * Resolve input modalities for a specific model.
+ * If the model has explicit modalities in the map, use those; otherwise use text only.
+ */
+type ResolveInputModalities<TModel extends string> =
+  TModel extends keyof OpencodeModelInputModalitiesByName
+    ? OpencodeModelInputModalitiesByName[TModel]
+    : readonly ["text"];
 
 /**
  * Get model metadata by name
@@ -68,11 +96,6 @@ function convertToolsToOpenAI(
 }
 
 /**
- * OpenCode Text Adapter
- *
- * Implements TanStack AI BaseTextAdapter with comprehensive model metadata support.
- */
-/**
  * Output metadata by modality
  */
 interface OutputMetadataByModality {
@@ -88,15 +111,17 @@ interface OutputMetadataByModality {
  *
  * Implements TanStack AI BaseTextAdapter with comprehensive model metadata support.
  */
-class OpencodeTextAdapter extends BaseTextAdapter<
-  OpencodeModel,
-  OpencodeProviderOptions,
-  readonly ["text"] | readonly ["text", "image"],
+class OpencodeTextAdapter<
+  TModel extends (typeof OPENCODE_CHAT_MODELS)[number],
+> extends BaseTextAdapter<
+  TModel,
+  ResolveProviderOptions<TModel>,
+  ResolveInputModalities<TModel>,
   OutputMetadataByModality
 > {
   readonly kind = "text" as const;
   readonly name = "opencode" as const;
-  readonly model: OpencodeModel;
+  readonly model: TModel;
   private openaiClient: OpenAI;
 
   constructor(
@@ -106,7 +131,7 @@ class OpencodeTextAdapter extends BaseTextAdapter<
       timeout?: number;
       maxRetries?: number;
     },
-    model: OpencodeModel,
+    model: TModel,
   ) {
     super({}, model);
     this.model = model;
@@ -119,7 +144,7 @@ class OpencodeTextAdapter extends BaseTextAdapter<
   }
 
   async *chatStream(
-    options: TextOptions<OpencodeProviderOptions>,
+    options: TextOptions<ResolveProviderOptions<TModel>>,
   ): AsyncIterable<StreamChunk> {
     const messages: OpenAI.Chat.ChatCompletionMessageParam[] = [];
 
@@ -387,7 +412,7 @@ class OpencodeTextAdapter extends BaseTextAdapter<
   }
 
   async structuredOutput<T = unknown>(options: {
-    chatOptions: TextOptions<OpencodeProviderOptions>;
+    chatOptions: TextOptions<ResolveProviderOptions<TModel>>;
     outputSchema: Record<string, unknown>;
   }): Promise<{ data: T; rawText: string }> {
     const modelMeta = getModelMeta(this.model);
@@ -510,10 +535,9 @@ export interface OpencodeTextConfig extends OpencodeProviderOptions {
  * })
  * ```
  */
-export function opencodeText(
-  model: OpencodeModel,
-  config?: OpencodeTextConfig,
-) {
+export function opencodeText<
+  TModel extends (typeof OPENCODE_CHAT_MODELS)[number],
+>(model: TModel, config?: OpencodeTextConfig): OpencodeTextAdapter<TModel> {
   const apiKey = config?.apiKey || getOpencodeApiKeyFromEnv();
   const subscription = config?.subscription ?? "zen";
 
@@ -540,11 +564,13 @@ export const opencode = opencodeText;
  * @param apiKey - Your OpenCode API key
  * @param config - Optional additional configuration
  */
-export function createOpencodeChat(
-  model: OpencodeModel,
+export function createOpencodeChat<
+  TModel extends (typeof OPENCODE_CHAT_MODELS)[number],
+>(
+  model: TModel,
   apiKey: string,
   config?: Omit<OpencodeTextConfig, "apiKey">,
-) {
+): OpencodeTextAdapter<TModel> {
   const subscription = config?.subscription ?? "zen";
 
   return new OpencodeTextAdapter(
@@ -612,7 +638,6 @@ export {
   MIMO_V2_OMNI,
   MIMO_V2_PRO,
   BIG_PICKLE,
-  QWEN_3_6_PLUS_FREE,
   NEMOTRON_3_SUPER_FREE,
   ALL_MODELS,
 } from "./model-meta.js";
@@ -647,5 +672,8 @@ export type {
   OpencodeModelInputModalitiesByName,
   OpencodeModelOutputModalitiesByName,
 } from "./provider-options.js";
+
+// Type resolution helpers (for advanced usage)
+export type { ResolveProviderOptions, ResolveInputModalities };
 
 export default opencodeText;

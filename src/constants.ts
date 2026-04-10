@@ -38,7 +38,6 @@ import {
   MIMO_V2_OMNI,
   MIMO_V2_PRO,
   BIG_PICKLE,
-  QWEN_3_6_PLUS_FREE,
   NEMOTRON_3_SUPER_FREE,
 } from "./model-meta.js";
 
@@ -86,7 +85,6 @@ export const OPENCODE_ZEN_MODELS = [
   MINIMAX_M2_5.name,
   MINIMAX_M2_5_FREE.name,
   BIG_PICKLE.name,
-  QWEN_3_6_PLUS_FREE.name,
   NEMOTRON_3_SUPER_FREE.name,
 ] as const;
 
@@ -141,7 +139,6 @@ export const OPENCODE_CHAT_MODELS = [
   MIMO_V2_OMNI.name,
   MIMO_V2_PRO.name,
   BIG_PICKLE.name,
-  QWEN_3_6_PLUS_FREE.name,
   NEMOTRON_3_SUPER_FREE.name,
 ] as const;
 
@@ -181,7 +178,6 @@ export const OPENCODE_TOOLS_MODELS = [
   MIMO_V2_OMNI.name,
   MIMO_V2_PRO.name,
   BIG_PICKLE.name,
-  QWEN_3_6_PLUS_FREE.name,
   NEMOTRON_3_SUPER_FREE.name,
 ] as const;
 
@@ -221,7 +217,6 @@ export const OPENCODE_STREAMING_MODELS = [
   MIMO_V2_OMNI.name,
   MIMO_V2_PRO.name,
   BIG_PICKLE.name,
-  QWEN_3_6_PLUS_FREE.name,
   NEMOTRON_3_SUPER_FREE.name,
 ] as const;
 
@@ -257,7 +252,6 @@ export const OPENCODE_STRUCTURED_OUTPUT_MODELS = [
   GLM_5.name,
   MIMO_V2_OMNI.name,
   MIMO_V2_PRO.name,
-  QWEN_3_6_PLUS_FREE.name,
 ] as const;
 
 /** Models with verified vision / image input support */
@@ -289,7 +283,6 @@ export const OPENCODE_VISION_MODELS = [
   GEMINI_3_1_PRO.name,
   GEMINI_3_FLASH.name,
   MIMO_V2_OMNI.name,
-  QWEN_3_6_PLUS_FREE.name,
 ] as const;
 
 // ==========================================
@@ -386,7 +379,6 @@ export const ALL_MODELS = [
   MIMO_V2_OMNI,
   MIMO_V2_PRO,
   BIG_PICKLE,
-  QWEN_3_6_PLUS_FREE,
   NEMOTRON_3_SUPER_FREE,
 ] as const;
 

@@ -43,7 +43,6 @@ export {
   MIMO_V2_OMNI,
   MIMO_V2_PRO,
   BIG_PICKLE,
-  QWEN_3_6_PLUS_FREE,
   NEMOTRON_3_SUPER_FREE,
 } from "../model-meta.js";
 

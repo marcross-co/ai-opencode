@@ -13,7 +13,7 @@ import type { OpencodeModelMeta } from "./types.js";
 // MOONSHOT AI MODELS
 // ==========================================
 
-export const KIMI_K2_5: OpencodeModelMeta = {
+export const KIMI_K2_5 = {
   name: "kimi-k2.5",
   description:
     "Moonshot AI advanced reasoning model with 200K context and vision support",
@@ -35,13 +35,13 @@ export const KIMI_K2_5: OpencodeModelMeta = {
     cachedInput: 0.1,
     currency: "USD",
   },
-};
+} as const satisfies OpencodeModelMeta;
 
 // ==========================================
 // ANTHROPIC MODELS (Claude 3 family)
 // ==========================================
 
-export const CLAUDE_OPUS_4_6: OpencodeModelMeta = {
+export const CLAUDE_OPUS_4_6 = {
   name: "claude-opus-4-6",
   description:
     "Anthropic Claude Opus 4.6 - Most capable model for complex tasks",
@@ -64,9 +64,9 @@ export const CLAUDE_OPUS_4_6: OpencodeModelMeta = {
     cachedWrite: 6.25,
     currency: "USD",
   },
-};
+} as const satisfies OpencodeModelMeta;
 
-export const CLAUDE_OPUS_4_5: OpencodeModelMeta = {
+export const CLAUDE_OPUS_4_5 = {
   name: "claude-opus-4-5",
   description: "Anthropic Claude Opus 4.5",
   provider: "anthropic",
@@ -88,9 +88,9 @@ export const CLAUDE_OPUS_4_5: OpencodeModelMeta = {
     cachedWrite: 6.25,
     currency: "USD",
   },
-};
+} as const satisfies OpencodeModelMeta;
 
-export const CLAUDE_OPUS_4_1: OpencodeModelMeta = {
+export const CLAUDE_OPUS_4_1 = {
   name: "claude-opus-4-1",
   description: "Anthropic Claude Opus 4.1 - Original Opus model",
   provider: "anthropic",
@@ -112,9 +112,9 @@ export const CLAUDE_OPUS_4_1: OpencodeModelMeta = {
     cachedWrite: 18.75,
     currency: "USD",
   },
-};
+} as const satisfies OpencodeModelMeta;
 
-export const CLAUDE_SONNET_4_6: OpencodeModelMeta = {
+export const CLAUDE_SONNET_4_6 = {
   name: "claude-sonnet-4-6",
   description: "Anthropic Claude Sonnet 4.6 - Balanced performance",
   provider: "anthropic",
@@ -136,9 +136,9 @@ export const CLAUDE_SONNET_4_6: OpencodeModelMeta = {
     cachedWrite: 3.75,
     currency: "USD",
   },
-};
+} as const satisfies OpencodeModelMeta;
 
-export const CLAUDE_SONNET_4_5: OpencodeModelMeta = {
+export const CLAUDE_SONNET_4_5 = {
   name: "claude-sonnet-4-5",
   description: "Anthropic Claude Sonnet 4.5",
   provider: "anthropic",
@@ -161,9 +161,9 @@ export const CLAUDE_SONNET_4_5: OpencodeModelMeta = {
     currency: "USD",
   },
   notes: "Input cost doubles to $6.00 for contexts >200K tokens",
-};
+} as const satisfies OpencodeModelMeta;
 
-export const CLAUDE_SONNET_4: OpencodeModelMeta = {
+export const CLAUDE_SONNET_4 = {
   name: "claude-sonnet-4",
   description: "Anthropic Claude Sonnet 4",
   provider: "anthropic",
@@ -186,9 +186,9 @@ export const CLAUDE_SONNET_4: OpencodeModelMeta = {
     currency: "USD",
   },
   notes: "Input cost doubles to $6.00 for contexts >200K tokens",
-};
+} as const satisfies OpencodeModelMeta;
 
-export const CLAUDE_HAIKU_4_5: OpencodeModelMeta = {
+export const CLAUDE_HAIKU_4_5 = {
   name: "claude-haiku-4-5",
   description: "Anthropic Claude Haiku 4.5 - Fast, cost-effective",
   provider: "anthropic",
@@ -210,9 +210,9 @@ export const CLAUDE_HAIKU_4_5: OpencodeModelMeta = {
     cachedWrite: 1.25,
     currency: "USD",
   },
-};
+} as const satisfies OpencodeModelMeta;
 
-export const CLAUDE_HAIKU_3_5: OpencodeModelMeta = {
+export const CLAUDE_HAIKU_3_5 = {
   name: "claude-3-5-haiku",
   description: "Anthropic Claude 3.5 Haiku - Fast, cost-effective model",
   provider: "anthropic",
@@ -235,13 +235,13 @@ export const CLAUDE_HAIKU_3_5: OpencodeModelMeta = {
     currency: "USD",
   },
   notes: "Also used by OpenCode for generating session titles",
-};
+} as const satisfies OpencodeModelMeta;
 
 // ==========================================
 // OPENAI MODELS (GPT family)
 // ==========================================
 
-export const GPT_5_4: OpencodeModelMeta = {
+export const GPT_5_4 = {
   name: "gpt-5.4",
   description: "OpenAI GPT-5.4 - Advanced reasoning and coding",
   provider: "openai",
@@ -262,9 +262,9 @@ export const GPT_5_4: OpencodeModelMeta = {
     cachedInput: 0.25,
     currency: "USD",
   },
-};
+} as const satisfies OpencodeModelMeta;
 
-export const GPT_5_4_PRO: OpencodeModelMeta = {
+export const GPT_5_4_PRO = {
   name: "gpt-5.4-pro",
   description: "OpenAI GPT-5.4 Pro - Most capable GPT model",
   provider: "openai",
@@ -285,9 +285,9 @@ export const GPT_5_4_PRO: OpencodeModelMeta = {
     cachedInput: 30.0,
     currency: "USD",
   },
-};
+} as const satisfies OpencodeModelMeta;
 
-export const GPT_5_4_MINI: OpencodeModelMeta = {
+export const GPT_5_4_MINI = {
   name: "gpt-5.4-mini",
   description: "OpenAI GPT-5.4 Mini - Balanced performance",
   provider: "openai",
@@ -308,9 +308,9 @@ export const GPT_5_4_MINI: OpencodeModelMeta = {
     cachedInput: 0.075,
     currency: "USD",
   },
-};
+} as const satisfies OpencodeModelMeta;
 
-export const GPT_5_4_NANO: OpencodeModelMeta = {
+export const GPT_5_4_NANO = {
   name: "gpt-5.4-nano",
   description: "OpenAI GPT-5.4 Nano - Fast, cost-effective",
   provider: "openai",
@@ -331,9 +331,9 @@ export const GPT_5_4_NANO: OpencodeModelMeta = {
     cachedInput: 0.02,
     currency: "USD",
   },
-};
+} as const satisfies OpencodeModelMeta;
 
-export const GPT_5_3_CODEX: OpencodeModelMeta = {
+export const GPT_5_3_CODEX = {
   name: "gpt-5.3-codex",
   description: "OpenAI GPT-5.3 Codex - Specialized for coding",
   provider: "openai",
@@ -354,9 +354,9 @@ export const GPT_5_3_CODEX: OpencodeModelMeta = {
     cachedInput: 0.175,
     currency: "USD",
   },
-};
+} as const satisfies OpencodeModelMeta;
 
-export const GPT_5_3_CODEX_SPARK: OpencodeModelMeta = {
+export const GPT_5_3_CODEX_SPARK = {
   name: "gpt-5.3-codex-spark",
   description: "OpenAI GPT-5.3 Codex Spark - Lightweight coding model",
   provider: "openai",
@@ -377,9 +377,9 @@ export const GPT_5_3_CODEX_SPARK: OpencodeModelMeta = {
     cachedInput: 0.175,
     currency: "USD",
   },
-};
+} as const satisfies OpencodeModelMeta;
 
-export const GPT_5_2: OpencodeModelMeta = {
+export const GPT_5_2 = {
   name: "gpt-5.2",
   description: "OpenAI GPT-5.2",
   provider: "openai",
@@ -400,9 +400,9 @@ export const GPT_5_2: OpencodeModelMeta = {
     cachedInput: 0.175,
     currency: "USD",
   },
-};
+} as const satisfies OpencodeModelMeta;
 
-export const GPT_5_2_CODEX: OpencodeModelMeta = {
+export const GPT_5_2_CODEX = {
   name: "gpt-5.2-codex",
   description: "OpenAI GPT-5.2 Codex",
   provider: "openai",
@@ -423,9 +423,9 @@ export const GPT_5_2_CODEX: OpencodeModelMeta = {
     cachedInput: 0.175,
     currency: "USD",
   },
-};
+} as const satisfies OpencodeModelMeta;
 
-export const GPT_5_1: OpencodeModelMeta = {
+export const GPT_5_1 = {
   name: "gpt-5.1",
   description: "OpenAI GPT-5.1",
   provider: "openai",
@@ -446,9 +446,9 @@ export const GPT_5_1: OpencodeModelMeta = {
     cachedInput: 0.107,
     currency: "USD",
   },
-};
+} as const satisfies OpencodeModelMeta;
 
-export const GPT_5_1_CODEX: OpencodeModelMeta = {
+export const GPT_5_1_CODEX = {
   name: "gpt-5.1-codex",
   description: "OpenAI GPT-5.1 Codex",
   provider: "openai",
@@ -469,9 +469,9 @@ export const GPT_5_1_CODEX: OpencodeModelMeta = {
     cachedInput: 0.107,
     currency: "USD",
   },
-};
+} as const satisfies OpencodeModelMeta;
 
-export const GPT_5_1_CODEX_MAX: OpencodeModelMeta = {
+export const GPT_5_1_CODEX_MAX = {
   name: "gpt-5.1-codex-max",
   description: "OpenAI GPT-5.1 Codex Max",
   provider: "openai",
@@ -492,9 +492,9 @@ export const GPT_5_1_CODEX_MAX: OpencodeModelMeta = {
     cachedInput: 0.125,
     currency: "USD",
   },
-};
+} as const satisfies OpencodeModelMeta;
 
-export const GPT_5_1_CODEX_MINI: OpencodeModelMeta = {
+export const GPT_5_1_CODEX_MINI = {
   name: "gpt-5.1-codex-mini",
   description: "OpenAI GPT-5.1 Codex Mini",
   provider: "openai",
@@ -515,9 +515,9 @@ export const GPT_5_1_CODEX_MINI: OpencodeModelMeta = {
     cachedInput: 0.025,
     currency: "USD",
   },
-};
+} as const satisfies OpencodeModelMeta;
 
-export const GPT_5: OpencodeModelMeta = {
+export const GPT_5 = {
   name: "gpt-5",
   description: "OpenAI GPT-5",
   provider: "openai",
@@ -538,9 +538,9 @@ export const GPT_5: OpencodeModelMeta = {
     cachedInput: 0.107,
     currency: "USD",
   },
-};
+} as const satisfies OpencodeModelMeta;
 
-export const GPT_5_CODEX: OpencodeModelMeta = {
+export const GPT_5_CODEX = {
   name: "gpt-5-codex",
   description: "OpenAI GPT-5 Codex",
   provider: "openai",
@@ -561,9 +561,9 @@ export const GPT_5_CODEX: OpencodeModelMeta = {
     cachedInput: 0.107,
     currency: "USD",
   },
-};
+} as const satisfies OpencodeModelMeta;
 
-export const GPT_5_NANO: OpencodeModelMeta = {
+export const GPT_5_NANO = {
   name: "gpt-5-nano",
   description: "OpenAI GPT-5 Nano - Free model",
   provider: "openai",
@@ -584,13 +584,13 @@ export const GPT_5_NANO: OpencodeModelMeta = {
     currency: "USD",
   },
   notes: "Free model with usage limits",
-};
+} as const satisfies OpencodeModelMeta;
 
 // ==========================================
 // GOOGLE MODELS (Gemini family)
 // ==========================================
 
-export const GEMINI_3_1_PRO: OpencodeModelMeta = {
+export const GEMINI_3_1_PRO = {
   name: "gemini-3.1-pro",
   description: "Google Gemini 3.1 Pro - Advanced reasoning with 1M context",
   provider: "google",
@@ -612,9 +612,9 @@ export const GEMINI_3_1_PRO: OpencodeModelMeta = {
     currency: "USD",
   },
   notes: "Pricing changes to $4.00/$18.00 for contexts >200K tokens",
-};
+} as const satisfies OpencodeModelMeta;
 
-export const GEMINI_3_FLASH: OpencodeModelMeta = {
+export const GEMINI_3_FLASH = {
   name: "gemini-3-flash",
   description: "Google Gemini 3 Flash - Fast, cost-effective",
   provider: "google",
@@ -635,13 +635,13 @@ export const GEMINI_3_FLASH: OpencodeModelMeta = {
     cachedInput: 0.05,
     currency: "USD",
   },
-};
+} as const satisfies OpencodeModelMeta;
 
 // ==========================================
 // ZHIPU AI MODELS (GLM family)
 // ==========================================
 
-export const GLM_5_1: OpencodeModelMeta = {
+export const GLM_5_1 = {
   name: "glm-5.1",
   description: "Zhipu AI GLM 5.1 - Flagship model with 200K context",
   provider: "zhipu",
@@ -663,9 +663,9 @@ export const GLM_5_1: OpencodeModelMeta = {
     currency: "USD",
   },
   notes: "Text-only. Use GLM-5V-Turbo variant for vision support",
-};
+} as const satisfies OpencodeModelMeta;
 
-export const GLM_5: OpencodeModelMeta = {
+export const GLM_5 = {
   name: "glm-5",
   description: "Zhipu AI GLM 5 - General purpose model",
   provider: "zhipu",
@@ -687,13 +687,13 @@ export const GLM_5: OpencodeModelMeta = {
     currency: "USD",
   },
   notes: "Text-only. Use GLM-5V-Turbo variant for vision support",
-};
+} as const satisfies OpencodeModelMeta;
 
 // ==========================================
 // MINIMAX MODELS
 // ==========================================
 
-export const MINIMAX_M2_5: OpencodeModelMeta = {
+export const MINIMAX_M2_5 = {
   name: "minimax-m2.5",
   description: "MiniMax M2.5 - General purpose chat model",
   provider: "minimax",
@@ -716,9 +716,9 @@ export const MINIMAX_M2_5: OpencodeModelMeta = {
   },
   notes:
     "Structured output and vision support not verified. Available for free during beta",
-};
+} as const satisfies OpencodeModelMeta;
 
-export const MINIMAX_M2_5_FREE: OpencodeModelMeta = {
+export const MINIMAX_M2_5_FREE = {
   name: "minimax-m2.5-free",
   description: "MiniMax M2.5 Free - Limited time free access",
   provider: "minimax",
@@ -739,9 +739,9 @@ export const MINIMAX_M2_5_FREE: OpencodeModelMeta = {
     currency: "USD",
   },
   notes: "Free during beta period. Data may be used for model improvement",
-};
+} as const satisfies OpencodeModelMeta;
 
-export const MINIMAX_M2_7: OpencodeModelMeta = {
+export const MINIMAX_M2_7 = {
   name: "minimax-m2.7",
   description: "MiniMax M2.7 - Enhanced version of M2.5",
   provider: "minimax",
@@ -763,13 +763,13 @@ export const MINIMAX_M2_7: OpencodeModelMeta = {
     currency: "USD",
   },
   notes: "Structured output and vision support not verified",
-};
+} as const satisfies OpencodeModelMeta;
 
 // ==========================================
 // MIMO MODELS
 // ==========================================
 
-export const MIMO_V2_OMNI: OpencodeModelMeta = {
+export const MIMO_V2_OMNI = {
   name: "mimo-v2-omni",
   description: "MiMo V2 Omni - Multimodal model",
   provider: "mimo",
@@ -790,9 +790,9 @@ export const MIMO_V2_OMNI: OpencodeModelMeta = {
     currency: "USD",
   },
   notes: 'Vision support inferred from "omni" naming. Verification needed',
-};
+} as const satisfies OpencodeModelMeta;
 
-export const MIMO_V2_PRO: OpencodeModelMeta = {
+export const MIMO_V2_PRO = {
   name: "mimo-v2-pro",
   description: "MiMo V2 Pro - Professional tier model",
   provider: "mimo",
@@ -813,13 +813,13 @@ export const MIMO_V2_PRO: OpencodeModelMeta = {
     currency: "USD",
   },
   notes: "Vision support not verified",
-};
+} as const satisfies OpencodeModelMeta;
 
 // ==========================================
 // OTHER MODELS
 // ==========================================
 
-export const BIG_PICKLE: OpencodeModelMeta = {
+export const BIG_PICKLE = {
   name: "big-pickle",
   description: "OpenCode Big Pickle - Stealth model",
   provider: "opencode",
@@ -841,33 +841,9 @@ export const BIG_PICKLE: OpencodeModelMeta = {
   },
   notes:
     "Stealth model. Free during testing. Data may be used for model improvement",
-};
+} as const satisfies OpencodeModelMeta;
 
-export const QWEN_3_6_PLUS_FREE: OpencodeModelMeta = {
-  name: "qwen3.6-plus-free",
-  description: "Qwen 3.6 Plus - Alibaba Qwen model",
-  provider: "qwen",
-  subscription: "zen",
-  endpoint: "/chat/completions",
-  supports: {
-    chat: true,
-    streaming: true,
-    tools: true,
-    structuredOutput: true,
-    vision: true,
-  },
-  contextWindow: 128000,
-  maxOutputTokens: 4096,
-  pricing: {
-    input: 0,
-    output: 0,
-    currency: "USD",
-  },
-  notes:
-    "Free during beta. Vision and structured output capabilities not yet verified",
-};
-
-export const NEMOTRON_3_SUPER_FREE: OpencodeModelMeta = {
+export const NEMOTRON_3_SUPER_FREE = {
   name: "nemotron-3-super-free",
   description: "NVIDIA Nemotron 3 Super",
   provider: "nvidia",
@@ -888,7 +864,7 @@ export const NEMOTRON_3_SUPER_FREE: OpencodeModelMeta = {
     currency: "USD",
   },
   notes: "Free model. Likely text-only. Structured output not verified",
-};
+} as const satisfies OpencodeModelMeta;
 
 // ==========================================
 // ALL MODELS ARRAY
@@ -937,6 +913,5 @@ export const ALL_MODELS = [
   MIMO_V2_PRO,
   // Others
   BIG_PICKLE,
-  QWEN_3_6_PLUS_FREE,
   NEMOTRON_3_SUPER_FREE,
 ] as const;
