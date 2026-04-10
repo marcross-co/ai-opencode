@@ -451,35 +451,35 @@ function getOpencodeApiKeyFromEnv(): string {
 }
 
 /**
- * Get the base URL for a given variant
+ * Get the base URL for a given subscription tier
  */
-function getBaseURL(variant: "zen" | "go" = "zen"): string {
-  return variant === "go" ? OPENCODE_BASE_URL_GO : OPENCODE_BASE_URL_ZEN;
+function getBaseURL(subscription: "zen" | "go" = "zen"): string {
+  return subscription === "go" ? OPENCODE_BASE_URL_GO : OPENCODE_BASE_URL_ZEN;
 }
 
 /**
  * Configuration options for opencodeText
  */
 export interface OpencodeTextConfig extends OpencodeProviderOptions {
-  /** OpenCode variant: 'zen' (default) or 'go' */
-  variant?: "zen" | "go";
+  /** OpenCode subscription tier: 'zen' (pay-as-you-go, default) or 'go' ($10/month) */
+  subscription?: "zen" | "go";
 }
 
 /**
  * Creates an OpenCode text adapter for TanStack AI
  *
  * @param model - The model identifier (e.g., 'kimi-k2.5', 'claude-opus-4-6')
- * @param config - Optional configuration including variant (zen/go), temperature, etc.
+ * @param config - Optional configuration including subscription (zen/go), temperature, etc.
  *
  * @example
  * ```typescript
  * import { opencodeText } from '@marcross/ai-opencode'
  *
- * // Zen (default)
+ * // Zen (default, pay-as-you-go)
  * const adapter = opencodeText('kimi-k2.5')
  *
- * // Go variant
- * const goAdapter = opencodeText('kimi-k2.5', { variant: 'go' })
+ * // Go subscription ($10/month)
+ * const goAdapter = opencodeText('kimi-k2.5', { subscription: 'go' })
  *
  * // With options
  * const adapter = opencodeText('claude-opus-4-6', {
@@ -490,12 +490,12 @@ export interface OpencodeTextConfig extends OpencodeProviderOptions {
  */
 export function opencodeText(model: OpencodeModel, config?: OpencodeTextConfig) {
   const apiKey = config?.apiKey || getOpencodeApiKeyFromEnv();
-  const variant = config?.variant ?? "zen";
+  const subscription = config?.subscription ?? "zen";
 
   return new OpencodeTextAdapter(
     {
       apiKey,
-      baseURL: getBaseURL(variant),
+      baseURL: getBaseURL(subscription),
       timeout: config?.timeout,
       maxRetries: config?.maxRetries,
     },
@@ -520,12 +520,12 @@ export function createOpencodeChat(
   apiKey: string,
   config?: Omit<OpencodeTextConfig, "apiKey">,
 ) {
-  const variant = config?.variant ?? "zen";
+  const subscription = config?.subscription ?? "zen";
 
   return new OpencodeTextAdapter(
     {
       apiKey,
-      baseURL: getBaseURL(variant),
+      baseURL: getBaseURL(subscription),
       timeout: config?.timeout,
       maxRetries: config?.maxRetries,
     },

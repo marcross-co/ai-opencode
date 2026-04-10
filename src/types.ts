@@ -98,8 +98,8 @@ export interface OpencodeModelMeta {
 export interface OpencodeConfigBase {
   /** OpenCode API key (falls back to OPENCODE_API_KEY env var) */
   apiKey?: string
-  /** OpenCode variant: 'zen' (default) or 'go' */
-  variant?: 'zen' | 'go'
+  /** OpenCode subscription tier: 'zen' (pay-as-you-go, default) or 'go' ($10/month) */
+  subscription?: 'zen' | 'go'
   /** Request timeout in milliseconds */
   timeout?: number
   /** Maximum number of retries for failed requests */

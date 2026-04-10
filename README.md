@@ -85,7 +85,7 @@ import { opencodeText } from '@marcross/ai-opencode'
 
 const adapter = opencodeText('claude-opus-4-6', {
   apiKey: 'your-api-key', // Optional: falls back to OPENCODE_API_KEY env var
-  variant: 'zen', // 'zen' (default) or 'go'
+  subscription: 'zen', // 'zen' (pay-as-you-go, default) or 'go' ($10/month)
   temperature: 0.7, // Sampling temperature (0-2)
   topP: 0.9, // Nucleus sampling (0-1)
   maxTokens: 4096, // Maximum tokens to generate
@@ -111,8 +111,8 @@ Budget-friendly access to 7 open-weight models:
 - MiMo V2 Omni, V2 Pro
 
 ```typescript
-// Use Go variant
-const adapter = opencodeText('kimi-k2.5', { variant: 'go' })
+// Use Go subscription
+const adapter = opencodeText('kimi-k2.5', { subscription: 'go' })
 ```
 
 ## Tool Calling
@@ -294,7 +294,7 @@ Creates a text adapter for OpenCode API.
 - `model`: `OpencodeModel` - One of the supported model identifiers
 - `config?`: Configuration object
   - `apiKey?: string` - API key (falls back to OPENCODE_API_KEY env var)
-  - `variant?: 'zen' | 'go'` - Subscription tier (default: 'zen')
+  - `subscription?: 'zen' | 'go'` - Subscription tier (default: 'zen')
   - `temperature?: number` - Sampling temperature (0-2)
   - `topP?: number` - Nucleus sampling (0-1)
   - `maxTokens?: number` - Maximum tokens to generate
