@@ -1,6 +1,6 @@
 {
   "name": "@marcross/ai-opencode",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "TanStack AI community adapter for OpenCode Go API - OpenAI-compatible Chat Completions",
   "author": "Marcross",
   "license": "MIT",
