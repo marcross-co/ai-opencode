@@ -1,11 +1,6 @@
 import OpenAI from "openai";
 import { BaseTextAdapter } from "@tanstack/ai/adapters";
-import type {
-  ContentPart,
-  StreamChunk,
-  TextOptions,
-  Tool,
-} from "@tanstack/ai";
+import type { ContentPart, StreamChunk, TextOptions, Tool } from "@tanstack/ai";
 
 import type { OpencodeModel } from "./constants.js";
 import { OPENCODE_BASE_URL_ZEN, OPENCODE_BASE_URL_GO } from "./constants.js";
@@ -40,7 +35,9 @@ function getModelMeta(name: OpencodeModel): OpencodeModelMeta {
 /**
  * Extract text content from a message content value.
  */
-function extractTextContent(content: string | null | Array<ContentPart>): string {
+function extractTextContent(
+  content: string | null | Array<ContentPart>,
+): string {
   if (content === null) return "";
   if (typeof content === "string") return content;
   return content
@@ -62,7 +59,10 @@ function convertToolsToOpenAI(
     function: {
       name: tool.name,
       description: tool.description,
-      parameters: (tool.inputSchema || { type: "object", properties: {} }) as Record<string, unknown>,
+      parameters: (tool.inputSchema || {
+        type: "object",
+        properties: {},
+      }) as Record<string, unknown>,
     },
   }));
 }
@@ -118,7 +118,9 @@ class OpencodeTextAdapter extends BaseTextAdapter<
     });
   }
 
-  async *chatStream(options: TextOptions<OpencodeProviderOptions>): AsyncIterable<StreamChunk> {
+  async *chatStream(
+    options: TextOptions<OpencodeProviderOptions>,
+  ): AsyncIterable<StreamChunk> {
     const messages: OpenAI.Chat.ChatCompletionMessageParam[] = [];
 
     // Add system prompts
@@ -161,7 +163,9 @@ class OpencodeTextAdapter extends BaseTextAdapter<
         messages.push(assistantMsg);
       } else if (msg.role === "tool") {
         if (!msg.toolCallId) {
-          console.warn("[OpenCode Adapter] Skipping tool message without toolCallId");
+          console.warn(
+            "[OpenCode Adapter] Skipping tool message without toolCallId",
+          );
           continue;
         }
         messages.push({
@@ -179,7 +183,10 @@ class OpencodeTextAdapter extends BaseTextAdapter<
     let hasEmittedTextMessageStart = false;
 
     if (process.env.DEBUG_OPENCODE) {
-      console.log("[OpenCode Adapter] Sending messages:", JSON.stringify(messages, null, 2));
+      console.log(
+        "[OpenCode Adapter] Sending messages:",
+        JSON.stringify(messages, null, 2),
+      );
     }
 
     try {
@@ -199,7 +206,13 @@ class OpencodeTextAdapter extends BaseTextAdapter<
 
       const toolCallMetadata = new Map<
         number,
-        { id: string; name: string; started: boolean; args: string; ended: boolean }
+        {
+          id: string;
+          name: string;
+          started: boolean;
+          args: string;
+          ended: boolean;
+        }
       >();
       let accumulatedContent = "";
       let hasEmittedRunFinished = false;
@@ -349,7 +362,11 @@ class OpencodeTextAdapter extends BaseTextAdapter<
         }
       }
     } catch (error) {
-      const err = error as Error & { status?: number; statusText?: string; error?: unknown }
+      const err = error as Error & {
+        status?: number;
+        statusText?: string;
+        error?: unknown;
+      };
       console.error("[OpenCode Adapter] Error during chat stream:", {
         message: err.message,
         status: err.status,
@@ -376,12 +393,17 @@ class OpencodeTextAdapter extends BaseTextAdapter<
     const modelMeta = getModelMeta(this.model);
 
     if (!modelMeta.supports.structuredOutput) {
-      throw new Error(`Model ${this.model} does not support structured output.`);
+      throw new Error(
+        `Model ${this.model} does not support structured output.`,
+      );
     }
 
     const messages: OpenAI.Chat.ChatCompletionMessageParam[] = [];
 
-    if (options.chatOptions.systemPrompts && options.chatOptions.systemPrompts.length > 0) {
+    if (
+      options.chatOptions.systemPrompts &&
+      options.chatOptions.systemPrompts.length > 0
+    ) {
       messages.push({
         role: "system",
         content: options.chatOptions.systemPrompts.join("\n"),
@@ -488,7 +510,10 @@ export interface OpencodeTextConfig extends OpencodeProviderOptions {
  * })
  * ```
  */
-export function opencodeText(model: OpencodeModel, config?: OpencodeTextConfig) {
+export function opencodeText(
+  model: OpencodeModel,
+  config?: OpencodeTextConfig,
+) {
   const apiKey = config?.apiKey || getOpencodeApiKeyFromEnv();
   const subscription = config?.subscription ?? "zen";
 
@@ -538,7 +563,11 @@ export function createOpencodeChat(
 // ==========================================
 
 export { OpencodeTextAdapter };
-export type { OpencodeModel, OpencodeZenModel, OpencodeGoModel } from "./constants.js";
+export type {
+  OpencodeModel,
+  OpencodeZenModel,
+  OpencodeGoModel,
+} from "./constants.js";
 export type {
   OpencodeProvider,
   OpencodeSubscription,

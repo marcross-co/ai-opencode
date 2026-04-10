@@ -1,6 +1,6 @@
 /**
  * Model exports for @marcross/ai-opencode/models
- * 
+ *
  * Import model metadata and capability arrays:
  * ```ts
  * import { KIMI_K2_5, OPENCODE_CHAT_MODELS } from '@marcross/ai-opencode/models'
@@ -45,7 +45,7 @@ export {
   BIG_PICKLE,
   QWEN_3_6_PLUS_FREE,
   NEMOTRON_3_SUPER_FREE,
-} from '../model-meta.js'
+} from "../model-meta.js";
 
 // Capability arrays
 export {
@@ -65,8 +65,12 @@ export {
   OPENCODE_MINIMAX_MODELS,
   OPENCODE_BASE_URL_ZEN,
   OPENCODE_BASE_URL_GO,
-} from '../constants.js'
+} from "../constants.js";
 
 // Type exports
-export type { OpencodeModelMeta } from '../types.js'
-export type { OpencodeModel, OpencodeZenModel, OpencodeGoModel } from '../constants.js'
+export type { OpencodeModelMeta } from "../types.js";
+export type {
+  OpencodeModel,
+  OpencodeZenModel,
+  OpencodeGoModel,
+} from "../constants.js";

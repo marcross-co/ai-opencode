@@ -40,14 +40,14 @@ import {
   BIG_PICKLE,
   QWEN_3_6_PLUS_FREE,
   NEMOTRON_3_SUPER_FREE,
-} from './model-meta.js'
+} from "./model-meta.js";
 
 // ==========================================
 // BASE URLS
 // ==========================================
 
-export const OPENCODE_BASE_URL_ZEN = 'https://opencode.ai/zen/v1'
-export const OPENCODE_BASE_URL_GO = 'https://opencode.ai/zen/go/v1'
+export const OPENCODE_BASE_URL_ZEN = "https://opencode.ai/zen/v1";
+export const OPENCODE_BASE_URL_GO = "https://opencode.ai/zen/go/v1";
 
 // ==========================================
 // SUBSCRIPTION TIER ARRAYS
@@ -88,7 +88,7 @@ export const OPENCODE_ZEN_MODELS = [
   BIG_PICKLE.name,
   QWEN_3_6_PLUS_FREE.name,
   NEMOTRON_3_SUPER_FREE.name,
-] as const
+] as const;
 
 /** Models available through OpenCode Go ($10/month subscription) */
 export const OPENCODE_GO_MODELS = [
@@ -99,7 +99,7 @@ export const OPENCODE_GO_MODELS = [
   MINIMAX_M2_7.name,
   MIMO_V2_OMNI.name,
   MIMO_V2_PRO.name,
-] as const
+] as const;
 
 // ==========================================
 // CAPABILITY ARRAYS (TanStack AI Guidelines)
@@ -143,7 +143,7 @@ export const OPENCODE_CHAT_MODELS = [
   BIG_PICKLE.name,
   QWEN_3_6_PLUS_FREE.name,
   NEMOTRON_3_SUPER_FREE.name,
-] as const
+] as const;
 
 /** All models that support tool/function calling */
 export const OPENCODE_TOOLS_MODELS = [
@@ -183,7 +183,7 @@ export const OPENCODE_TOOLS_MODELS = [
   BIG_PICKLE.name,
   QWEN_3_6_PLUS_FREE.name,
   NEMOTRON_3_SUPER_FREE.name,
-] as const
+] as const;
 
 /** All models that support streaming responses */
 export const OPENCODE_STREAMING_MODELS = [
@@ -223,7 +223,7 @@ export const OPENCODE_STREAMING_MODELS = [
   BIG_PICKLE.name,
   QWEN_3_6_PLUS_FREE.name,
   NEMOTRON_3_SUPER_FREE.name,
-] as const
+] as const;
 
 /** Models with verified structured output / JSON mode support */
 export const OPENCODE_STRUCTURED_OUTPUT_MODELS = [
@@ -258,7 +258,7 @@ export const OPENCODE_STRUCTURED_OUTPUT_MODELS = [
   MIMO_V2_OMNI.name,
   MIMO_V2_PRO.name,
   QWEN_3_6_PLUS_FREE.name,
-] as const
+] as const;
 
 /** Models with verified vision / image input support */
 export const OPENCODE_VISION_MODELS = [
@@ -290,7 +290,7 @@ export const OPENCODE_VISION_MODELS = [
   GEMINI_3_FLASH.name,
   MIMO_V2_OMNI.name,
   QWEN_3_6_PLUS_FREE.name,
-] as const
+] as const;
 
 // ==========================================
 // PROVIDER-SPECIFIC ARRAYS
@@ -306,7 +306,7 @@ export const OPENCODE_ANTHROPIC_MODELS = [
   CLAUDE_SONNET_4.name,
   CLAUDE_HAIKU_4_5.name,
   CLAUDE_HAIKU_3_5.name,
-] as const
+] as const;
 
 /** OpenAI GPT models */
 export const OPENCODE_OPENAI_MODELS = [
@@ -325,31 +325,26 @@ export const OPENCODE_OPENAI_MODELS = [
   GPT_5.name,
   GPT_5_CODEX.name,
   GPT_5_NANO.name,
-] as const
+] as const;
 
 /** Google Gemini models */
 export const OPENCODE_GOOGLE_MODELS = [
   GEMINI_3_1_PRO.name,
   GEMINI_3_FLASH.name,
-] as const
+] as const;
 
 /** Moonshot AI models */
-export const OPENCODE_MOONSHOT_MODELS = [
-  KIMI_K2_5.name,
-] as const
+export const OPENCODE_MOONSHOT_MODELS = [KIMI_K2_5.name] as const;
 
 /** Zhipu AI GLM models */
-export const OPENCODE_ZHIPU_MODELS = [
-  GLM_5_1.name,
-  GLM_5.name,
-] as const
+export const OPENCODE_ZHIPU_MODELS = [GLM_5_1.name, GLM_5.name] as const;
 
 /** MiniMax models */
 export const OPENCODE_MINIMAX_MODELS = [
   MINIMAX_M2_5.name,
   MINIMAX_M2_5_FREE.name,
   MINIMAX_M2_7.name,
-] as const
+] as const;
 
 // ==========================================
 // TYPE EXPORTS
@@ -393,13 +388,13 @@ export const ALL_MODELS = [
   BIG_PICKLE,
   QWEN_3_6_PLUS_FREE,
   NEMOTRON_3_SUPER_FREE,
-] as const
+] as const;
 
 /** Type for Zen-only models */
-export type OpencodeZenModel = (typeof OPENCODE_ZEN_MODELS)[number]
+export type OpencodeZenModel = (typeof OPENCODE_ZEN_MODELS)[number];
 
 /** Type for Go-only models */
-export type OpencodeGoModel = (typeof OPENCODE_GO_MODELS)[number]
+export type OpencodeGoModel = (typeof OPENCODE_GO_MODELS)[number];
 
 /** Type for all OpenCode models */
-export type OpencodeModel = OpencodeZenModel | OpencodeGoModel
+export type OpencodeModel = OpencodeZenModel | OpencodeGoModel;
