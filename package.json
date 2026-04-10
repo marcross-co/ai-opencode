@@ -1,0 +1,67 @@
+{
+  "name": "@marcross/ai-opencode",
+  "version": "0.1.0",
+  "description": "TanStack AI community adapter for OpenCode Go API - OpenAI-compatible Chat Completions",
+  "author": "Marcross",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marcross-co/ai-opencode.git"
+  },
+  "bugs": {
+    "url": "https://github.com/marcross-co/ai-opencode/issues"
+  },
+  "homepage": "https://github.com/marcross-co/ai-opencode#readme",
+  "keywords": [
+    "tanstack",
+    "ai",
+    "opencode",
+    "kimi",
+    "minimax",
+    "glm",
+    "chat",
+    "streaming",
+    "tools"
+  ],
+  "packageManager": "pnpm@10.18.0",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean",
+    "dev": "tsup src/index.ts --format esm,cjs --dts --watch",
+    "lint": "eslint src --ext .ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "@tanstack/ai": ">=0.10.0",
+    "zod": "^4.0.0"
+  },
+  "dependencies": {
+    "openai": "^4.0.0"
+  },
+  "devDependencies": {
+    "@tanstack/ai": "^0.10.0",
+    "@types/node": "^20.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0",
+    "zod": "^4.0.0"
+  }
+}
