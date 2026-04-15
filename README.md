@@ -10,7 +10,7 @@ A community-maintained TanStack AI adapter for [OpenCode](https://opencode.ai/) 
 
 ## Features
 
-- 🤖 **30+ Models**: Full support for OpenCode Zen and Go models including Claude, GPT, Gemini, Kimi, GLM, MiniMax, and more
+- 🤖 **35+ Models**: Full support for OpenCode Zen and Go models including Claude, GPT, Gemini, Kimi, GLM, MiniMax, Qwen, and more
 - 🛠️ **Tool Calling**: Full support for function/tool calling with streaming
 - 📡 **Streaming**: Real-time streaming responses
 - 📋 **Structured Output**: JSON mode and JSON Schema support for structured responses
@@ -98,7 +98,7 @@ const adapter = opencodeText("claude-opus-4-6", {
 
 ### OpenCode Zen (Pay-as-you-go)
 
-Access to 30+ models with per-token pricing:
+Access to 35+ models with per-token pricing:
 
 - All Anthropic Claude models (Opus, Sonnet, Haiku)
 - All OpenAI GPT models (GPT-5.4, GPT-5.3 Codex, etc.)
@@ -107,12 +107,13 @@ Access to 30+ models with per-token pricing:
 
 ### OpenCode Go ($10/month subscription)
 
-Budget-friendly access to 7 open-weight models:
+Budget-friendly access to 9 open-weight models:
 
 - Kimi K2.5
 - GLM-5, GLM-5.1
 - MiniMax M2.5, M2.7
 - MiMo V2 Omni, V2 Pro
+- Qwen 3.5 Plus, 3.6 Plus
 
 ```typescript
 // Use Go subscription
@@ -224,6 +225,13 @@ console.log(result.hobbies); // ["hiking", "reading"]
 | ---------------- | ------- | ------ | ----- | ---------- | ---------------- |
 | `gemini-3.1-pro` | 200K    | ✅     | ✅    | ✅         | $2.00 / $12.00   |
 | `gemini-3-flash` | 128K    | ✅     | ✅    | ✅         | $0.50 / $3.00    |
+
+### Alibaba (Qwen)
+
+| Model          | Context | Vision | Tools | Structured | Pricing (per 1M) |
+| -------------- | ------- | ------ | ----- | ---------- | ---------------- |
+| `qwen3.5-plus` | 262K    | ✅     | ✅    | ✅         | $0.20 / $1.20    |
+| `qwen3.6-plus` | 262K    | ✅     | ✅    | ✅         | $0.50 / $3.00    |
 
 ### Other Models
 
