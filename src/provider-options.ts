@@ -245,6 +245,18 @@ export type OpencodeChatModelProviderOptionsByName = {
     OpencodeStructuredOutputOptions &
     OpencodeStreamingOptions;
 
+  // Alibaba/Qwen
+  "qwen3.5-plus": OpencodeBaseOptions &
+    OpencodeToolsOptions &
+    OpencodeStructuredOutputOptions &
+    OpencodeStreamingOptions &
+    OpencodeVisionOptions;
+  "qwen3.6-plus": OpencodeBaseOptions &
+    OpencodeToolsOptions &
+    OpencodeStructuredOutputOptions &
+    OpencodeStreamingOptions &
+    OpencodeVisionOptions;
+
   // Others - conservative
   "big-pickle": OpencodeBaseOptions &
     OpencodeToolsOptions &
@@ -302,6 +314,12 @@ export type OpencodeModelInputModalitiesByName = {
   "minimax-m2.7": readonly ["text"];
   "mimo-v2-omni": readonly ["text", "image"];
   "mimo-v2-pro": readonly ["text"];
+
+  // Alibaba/Qwen
+  "qwen3.5-plus": readonly ["text", "image"];
+  "qwen3.6-plus": readonly ["text", "image"];
+
+  // Others
   "big-pickle": readonly ["text"];
   "qwen3.6-plus-free": readonly ["text", "image"];
   "nemotron-3-super-free": readonly ["text"];
@@ -349,6 +367,12 @@ export type OpencodeModelOutputModalitiesByName = {
   "minimax-m2.7": readonly ["text"];
   "mimo-v2-omni": readonly ["text"];
   "mimo-v2-pro": readonly ["text"];
+
+  // Alibaba/Qwen
+  "qwen3.5-plus": readonly ["text"];
+  "qwen3.6-plus": readonly ["text"];
+
+  // Others
   "big-pickle": readonly ["text"];
   "qwen3.6-plus-free": readonly ["text"];
   "nemotron-3-super-free": readonly ["text"];

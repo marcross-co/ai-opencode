@@ -7,6 +7,7 @@
  * AI model providers available through OpenCode
  */
 export type OpencodeProvider =
+  | "alibaba"
   | "anthropic"
   | "google"
   | "openai"

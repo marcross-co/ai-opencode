@@ -816,6 +816,59 @@ export const MIMO_V2_PRO = {
 } as const satisfies OpencodeModelMeta;
 
 // ==========================================
+// ALIBABA AI MODELS (Qwen family)
+// ==========================================
+
+export const QWEN_3_5_PLUS = {
+  name: "qwen3.5-plus",
+  description: "Alibaba Qwen3.5 Plus - Advanced reasoning with 262K context",
+  provider: "alibaba",
+  subscription: "both",
+  endpoint: "/chat/completions",
+  supports: {
+    chat: true,
+    streaming: true,
+    tools: true,
+    structuredOutput: true,
+    vision: true,
+  },
+  contextWindow: 262144,
+  maxOutputTokens: 65536,
+  pricing: {
+    input: 0.2,
+    output: 1.2,
+    cachedInput: 0.02,
+    cachedWrite: 0.25,
+    currency: "USD",
+  },
+} as const satisfies OpencodeModelMeta;
+
+export const QWEN_3_6_PLUS = {
+  name: "qwen3.6-plus",
+  description:
+    "Alibaba Qwen3.6 Plus - Enhanced reasoning model with 262K context",
+  provider: "alibaba",
+  subscription: "both",
+  endpoint: "/chat/completions",
+  supports: {
+    chat: true,
+    streaming: true,
+    tools: true,
+    structuredOutput: true,
+    vision: true,
+  },
+  contextWindow: 262144,
+  maxOutputTokens: 65536,
+  pricing: {
+    input: 0.5,
+    output: 3.0,
+    cachedInput: 0.05,
+    cachedWrite: 0.625,
+    currency: "USD",
+  },
+} as const satisfies OpencodeModelMeta;
+
+// ==========================================
 // OTHER MODELS
 // ==========================================
 
@@ -911,6 +964,9 @@ export const ALL_MODELS = [
   // MiMo
   MIMO_V2_OMNI,
   MIMO_V2_PRO,
+  // Alibaba
+  QWEN_3_5_PLUS,
+  QWEN_3_6_PLUS,
   // Others
   BIG_PICKLE,
   NEMOTRON_3_SUPER_FREE,
