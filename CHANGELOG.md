@@ -1,5 +1,15 @@
 # @marcross/ai-opencode
 
+## 0.1.3
+
+### Minor Changes
+
+- Added Alibaba Qwen model support
+  - `qwen3.5-plus`: Advanced reasoning model with 262K context ($0.20/$1.20 per 1M tokens)
+  - `qwen3.6-plus`: Enhanced reasoning model with 262K context ($0.50/$3.00 per 1M tokens)
+  - Both models support: chat, streaming, tools, structured output, and vision
+  - Added `"alibaba"` provider type to `OpencodeProvider`
+
 ## 0.1.2
 
 ### Patch Changes
